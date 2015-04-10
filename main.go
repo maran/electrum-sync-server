@@ -12,7 +12,7 @@ const (
 )
 
 var dbDir = flag.String("dbDir", defaultDbDir(), "Path where the application should look for the database file.")
-var listenPort = flag.String("listenPort", ":8080", "Port where the json api should listen at in host:port format.")
+var listenPort = flag.String("listenPort", "0.0.0.0:8080", "Port where the json api should listen at in host:port format.")
 
 func main() {
 	flag.Parse()
