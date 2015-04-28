@@ -1,0 +1,1 @@
+web: electrum-sync-server

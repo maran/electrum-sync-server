@@ -4,6 +4,15 @@ import (
 	"fmt"
 )
 
+type DbOpts struct {
+	DbPath   string
+	Host     string
+	User     string
+	Dbname   string
+	DbType   string
+	Password string
+}
+
 // SQL Object
 type Label struct {
 	Id             int    `sql:"index" json:"id"`

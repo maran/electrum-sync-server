@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"github.com/ant0ine/go-json-rest/rest"
 	"github.com/jcelliott/lumber"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
 	_ "github.com/mattn/go-sqlite3"
 	"log"
 	"net/http"
@@ -16,23 +18,34 @@ type SyncMaster struct {
 	logger *lumber.ConsoleLogger
 }
 
-func newSyncMaster(dbDir string) SyncMaster {
+func newSyncMaster(opts DbOpts) SyncMaster {
 	sync := SyncMaster{}
 	sync.logger = lumber.NewConsoleLogger(lumber.DEBUG)
 	sync.logger.Info("Starting Electrum Sync Server v%s", Version)
 
 	var err error
-	dbPath := dbDir + "/sync.db"
-	sync.logger.Info("Opening database at %s", dbPath)
 
-	err = os.MkdirAll(dbDir, 0700) // read, write and dir search for user
-	if err != nil {
-		log.Fatal("Error creating database folder", err)
-	}
-
-	sync.db, err = gorm.Open("sqlite3", dbPath)
-	if err != nil {
-		log.Fatal("Error opening database:", err)
+	if opts.DbType == "sqlite3" {
+		dbPath := opts.DbPath + "/sync.db"
+		sync.logger.Info("Opening database at %s", dbPath)
+		err = os.MkdirAll(opts.DbPath, 0700) // read, write and dir search for user
+		if err != nil {
+			log.Fatal("Error creating database folder", err)
+		}
+		newdb, err := gorm.Open("sqlite3", dbPath)
+		if err != nil {
+			log.Fatal("Error opening sqlite3 database:", err)
+		}
+		sync.db = *newdb
+	} else if opts.DbType == "postgres" {
+		optss := fmt.Sprintf("host=%s user=%s dbname=%s password=%s sslmode=disable", opts.Host, opts.User, opts.Dbname, opts.Password)
+		newdb, err := gorm.Open("postgres", optss)
+		if err != nil {
+			log.Fatal("Error connecting to Postgres database: ", err)
+		}
+		sync.db = *newdb
+	} else {
+		log.Fatal("Unknown database type. Please supply sqlite3 or postgres")
 	}
 
 	sync.db.AutoMigrate(&Label{})

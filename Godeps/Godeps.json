@@ -1,0 +1,38 @@
+{
+	"ImportPath": "github.com/maran/electrum-sync-server",
+	"GoVersion": "go1.6.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/ant0ine/go-json-rest/rest",
+			"Comment": "v3.1.0",
+			"Rev": "fc0d6bacef3ca8295c53fb0232cc042734521394"
+		},
+		{
+			"ImportPath": "github.com/ianschenck/envflag",
+			"Rev": "9111d830d133f952887a936367fb0211c3134f0d"
+		},
+		{
+			"ImportPath": "github.com/jcelliott/lumber",
+			"Rev": "b31b66b90991ff0e9e292dae147f94e4b87fcdf7"
+		},
+		{
+			"ImportPath": "github.com/jinzhu/gorm",
+			"Comment": "v1.0-41-gc1c4f9f",
+			"Rev": "c1c4f9f86e732a042aac9f37e025893d6d6cabec"
+		},
+		{
+			"ImportPath": "github.com/jinzhu/inflection",
+			"Rev": "8f4d3a0d04ce0b7c0cf3126fb98524246d00d102"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "go1.0-cutoff-31-ga33d605",
+			"Rev": "a33d6053e025943d5dc89dfa1f35fe5500618df7"
+		},
+		{
+			"ImportPath": "github.com/mattn/go-sqlite3",
+			"Comment": "v1.1.0-69-g38ee283",
+			"Rev": "38ee283dabf11c9cbdb968eebd79b1fa7acbabe6"
+		}
+	]
+}
