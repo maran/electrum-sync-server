@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	Version = "0.0.1"
+	Version = "0.0.2"
 )
 
 var dbDir = flag.String("dbDir", defaultDbDir(), "Path where the application should look for the database file.")
