@@ -1,0 +1,4 @@
+*.pub
+*.pem
+*.key
+*.csr
