@@ -1,5 +1,5 @@
 #### Electrum sync server
-This is the server component for the [Bitcoin wallet Electrum](electrum.org)'s label synchronization feature.
+This is the server component for the [Bitcoin wallet Electrum](http://electrum.org)'s label synchronization feature.
 
 There is a public node available at http://sync.bysh.me:8080/.
 
