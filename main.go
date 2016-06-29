@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	Version = "0.0.2"
+	Version = "0.0.3"
 )
 
 var dbType = envflag.String("DBTYPE", "sqlite3", "Database to use, valid options sqlite3 or postgres")
@@ -21,7 +21,7 @@ var password = envflag.String("PGPASSWORD", "''", "postgres - Postgres password"
 var host = envflag.String("PGHOST", "127.0.0.1", "postgres - Postgres hostname")
 var db = envflag.String("PGDATABASE", "electrum-label-sync", "postgres - Postgres database name")
 
-var listenPort = envflag.String("listenPort", "0.0.0.0:8080", "Port where the json api should listen at in host:port format.")
+var listenPort = envflag.String("LISTENPORT", "0.0.0.0:8080", "Port where the json api should listen at in host:port format.")
 
 var useTLS = envflag.Bool("useTls", false, "Serve json api conncetions over TLS.")
 var certPath = envflag.String("certPath", "cert.pem", "Path to TLS certificate")
