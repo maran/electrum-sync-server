@@ -39,6 +39,7 @@ func newSyncMaster(opts DbOpts) SyncMaster {
 		sync.db = *newdb
 	} else if opts.DbType == "postgres" {
 		optss := fmt.Sprintf("host=%s user=%s dbname=%s password=%s sslmode=disable", opts.Host, opts.User, opts.Dbname, opts.Password)
+		sync.logger.Info("Connecting to postgres database")
 		newdb, err := gorm.Open("postgres", optss)
 		if err != nil {
 			log.Fatal("Error connecting to Postgres database: ", err)
