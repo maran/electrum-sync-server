@@ -16,9 +16,15 @@ This project is 'go get(able)' [install Go](http://golang.org/doc/install) and d
 Configuration happens via environment variables.
 
 `DBTYPE`: Database to use, possible values sqlite3 or postgres.
+
 `DBDIR`: Directory to use for sqlite3 database.
+
 `DBUSER`: Postgres user
+
 `DBPASSWORD`: Postgres password
+
 `PGHOST`: Postgres hostname
+
 `PGDATABASE`: Postgres database
+
 `LISTENPORT`: Address to bind on. Format; ip:port
